@@ -28,7 +28,6 @@ public class UsuarioServicio {
     //guardar un usuario
     public Usuario guardarUsuario(Usuario datosUsuario) throws Exception{
         try {
-            System.out.println(validacionUsuario.validarNombres(datosUsuario.getNombres()));
             if (!validacionUsuario.validarNombres(datosUsuario.getNombres())) {
                 throw new Exception("Nombres invalidos, revise por favor");
             }

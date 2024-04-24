@@ -26,7 +26,7 @@ public class ValidacionUsuario {
             throw new Exception("la longitud de la cedula no puede ser mayor a 12");
         }
         String regex = "^[0-9]+$";
-        if (!ValidarPatron.evaluarPatron(regex,cedula)){
+        if (!ValidarPatron.evaluarPatron(cedula,regex)){
             throw new Exception("La cedula ingresada solo puede tener numeros");
         }
         return true;
@@ -49,7 +49,8 @@ public class ValidacionUsuario {
         if (sexo.length()>1){
             throw new Exception("la longitud del sexo no puede ser mayor a 1");
         }
-        if (!sexo.toLowerCase().equals("m") || !sexo.toLowerCase().equals("f")){
+        System.out.println(sexo);
+        if (!sexo.equals("m") && !sexo.equals("f")){
             throw new Exception("el valor del sexo solo puede ser m o f");
         }
         return true;
@@ -62,7 +63,7 @@ public class ValidacionUsuario {
             throw new Exception("la longitud del codigo postal no puede ser mayor a 6");
         }
         String regex = "^[0-9]+$";
-        if (!ValidarPatron.evaluarPatron(regex,codigoPostal)){
+        if (!ValidarPatron.evaluarPatron(codigoPostal,regex)){
             throw new Exception("El codigo postal ingresado solo puede tener numeros");
         }
         return true;
