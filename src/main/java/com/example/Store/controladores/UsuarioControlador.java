@@ -36,4 +36,35 @@ public class UsuarioControlador {
                     .body(errorDetails);
         }
     }
+    @GetMapping
+    public ResponseEntity<?> consultarUsuario(){
+        try {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(usuarioServicio.buscarTodosLosUsuario());
+        }catch (Exception error){
+            Map<String,Object> errorDetails = new LinkedHashMap<>();
+            errorDetails.put("timestamp",LocalDateTime.now());
+            errorDetails.put("message",error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errorDetails);
+
+        }
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id){
+        try {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(usuarioServicio.buscarUsuarioPorId(id));
+        }catch (Exception error){
+            Map<String,Object> errorDetails = new LinkedHashMap<>();
+            errorDetails.put("timestamp",LocalDateTime.now());
+            errorDetails.put("message",error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errorDetails);
+        }
+    }
 }
