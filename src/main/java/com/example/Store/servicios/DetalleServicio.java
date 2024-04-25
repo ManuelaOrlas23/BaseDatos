@@ -20,10 +20,10 @@ public class DetalleServicio {
     //guardar un detalle
     public Detalle guardarDetalle(Detalle datosDetalle) throws Exception{
         try {
-            if (!validacionDetalle.validarCantidadProductos(datosDetalle.getCantidadProductos())==false){
+            if (!validacionDetalle.validarCantidadProductos(datosDetalle.getCantidadProductos())){
                 throw new Exception("Cantidad de productos invalida");
             }
-            if (!validacionDetalle.validarCostoTotal(datosDetalle.getCostoTotal())==false){
+            if (!validacionDetalle.validarCostoTotal(datosDetalle.getCostoTotal())){
                 throw new Exception("Costo total invalido");
             }
             return detalleRepositorio.save(datosDetalle);

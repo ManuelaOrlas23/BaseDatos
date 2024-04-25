@@ -40,3 +40,14 @@
 "fotografia":"foto"
 }
 
+{
+"nombreMarca": "Americanino",
+"nit": "5806521",
+"anoCreacion": "2000",
+"sedePrincipal": "Colombia"
+}
+
+{
+"costoTotal": 125000,
+"cantidadProductos": 10
+}

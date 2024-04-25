@@ -22,7 +22,7 @@ public class ValidacionMarca {
 
     public boolean validarNit(String nit)throws Exception{
         String regex = "^[0-9]+$";
-        if (!ValidarPatron.evaluarPatron(regex,nit)){
+        if (!ValidarPatron.evaluarPatron(nit,regex)){
             throw new Exception("El nit ingresado solo puede tener numeros");
         }
         if (nit.length()==0){
@@ -35,7 +35,7 @@ public class ValidacionMarca {
         return true;
     }
 
-    public boolean validarAno(LocalDate ano)throws Exception{
+    public boolean validarAno(String ano)throws Exception{
         if (ano==null){
             throw new Exception("la fecha no puede estar vacia");
         }

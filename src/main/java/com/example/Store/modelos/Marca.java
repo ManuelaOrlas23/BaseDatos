@@ -17,7 +17,7 @@ public class Marca {
     @Column(name = "nit",nullable = false, length = 20)
     private String nit; //  solo numeros y maximo 10
     @Column(name = "anoCreacion",nullable = true)
-    private LocalDate anoCreacion;// obligario
+    private String  anoCreacion;// obligario
     @Column(name = "sedePrincipal",nullable = true, length = 30)
     private String sedePrincipal; // no se valida
 
@@ -28,7 +28,7 @@ public class Marca {
         this.id_marca = id;
         this.nombreMarca = nombreMarca;
         this.nit = nit;
-        this.anoCreacion = anoCreacion;
+        this.anoCreacion = String.valueOf(anoCreacion);
         this.sedePrincipal = sedePrincipal;
     }
 
@@ -48,11 +48,11 @@ public class Marca {
         this.nit = nit;
     }
 
-    public LocalDate getAnoCreacion() {
+    public String getAnoCreacion() {
         return anoCreacion;
     }
 
-    public void setAnoCreacion(LocalDate anoCreacion) {
+    public void setAnoCreacion(String anoCreacion) {
         this.anoCreacion = anoCreacion;
     }
 

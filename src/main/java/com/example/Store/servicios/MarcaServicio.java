@@ -20,13 +20,13 @@ public class MarcaServicio {
     //guardar una marca
     public Marca guardarmarca(Marca datosMarca) throws Exception{
         try {
-            if (!validacionMarca.validarAno(datosMarca.getAnoCreacion())==false){
+            if (!validacionMarca.validarAno(datosMarca.getAnoCreacion())){
                 throw new Exception("Año invalido");
             }
-            if (!validacionMarca.validarNombreMarca(datosMarca.getNombreMarca())==false){
+            if (!validacionMarca.validarNombreMarca(datosMarca.getNombreMarca())){
                 throw new Exception("Nombre de marca invalido");
             }
-            if (!validacionMarca.validarNit(datosMarca.getNit())==false){
+            if (!validacionMarca.validarNit(datosMarca.getNit())){
                 throw new Exception("Nit invalido");
             }
             return marcaRepositorio.save(datosMarca);
