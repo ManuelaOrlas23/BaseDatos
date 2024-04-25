@@ -22,7 +22,7 @@ public class TipoPrendServicio {
     //guardar tipo prenda
     public TipoPrenda guardarTipoPrenda(TipoPrenda datosTipoPrenda)throws Exception{
         try {
-           if (!validacionTipoPrenda.validarNombre(datosTipoPrenda.getNombre())==false){
+           if (!validacionTipoPrenda.validarNombre(datosTipoPrenda.getNombre())){
                throw new Exception("Nombre invalido");
            }
             return tipoPrendaRepositorio.save(datosTipoPrenda);

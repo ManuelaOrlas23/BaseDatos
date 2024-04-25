@@ -20,24 +20,24 @@ public class ProductoServicio {
     //guardar un producto
     public Producto guardarProducto(Producto datosProducto) throws Exception{
         try {
-            if (!validacionProducto.validarNombre(datosProducto.getNombreProducto())==false){
+            if (!validacionProducto.validarNombre(datosProducto.getNombreProducto())){
                 throw new Exception("Nombre invalido");
             }
-            if (!validacionProducto.validarCantidadBodega(datosProducto.getCantidadBodega())==false){
+            if (!validacionProducto.validarCantidadBodega(datosProducto.getCantidadBodega())){
                 throw new Exception("Cantidad en bodega invalida");
             }
-            if (!validacionProducto.validarDescripcion(datosProducto.getDescripcion())==false){
+            if (!validacionProducto.validarDescripcion(datosProducto.getDescripcion())){
                 throw new Exception("Descripción invalida");
-            }if (!validacionProducto.validarTalla(datosProducto.getTalla())==false){
+            }if (!validacionProducto.validarTalla(datosProducto.getTalla())){
                 throw new Exception("Talla invalida");
             }
-            if (!validacionProducto.validarReferencia(datosProducto.getReferencia())==false){
+            if (!validacionProducto.validarReferencia(datosProducto.getReferencia())){
                 throw new Exception("Referencia invalida");
             }
-            if (!validacionProducto.validarFotografia(datosProducto.getFotografia())==false){
+            if (!validacionProducto.validarFotografia(datosProducto.getFotografia())){
                 throw new Exception("Fotografia invalida");
             }
-            if (!validacionProducto.validPrecioUnitario(datosProducto.getPrecioUnitario())==false){
+            if (!validacionProducto.validarPrecioUnitario(datosProducto.getPrecioUnitario())){
                 throw new Exception("Precio unitario invalido");
             }
             return productoRepositorio.save(datosProducto);

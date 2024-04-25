@@ -54,7 +54,7 @@ public class ValidacionProducto {
         }
         return true;
     }
-    public boolean validPrecioUnitario(Integer precioUnitario)throws Exception{
+    public boolean validarPrecioUnitario(Integer precioUnitario)throws Exception{
         if (precioUnitario<0){
             throw new Exception("El precio unitario no puede ser un numero negativo");
         }
