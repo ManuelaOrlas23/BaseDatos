@@ -84,7 +84,7 @@ public class ValidacionProducto {
         if (fotografia.length()==0){
             throw new Exception("La fotografia no puede estar vacia");
         }
-        if (fotografia.length()>255){
+        if (fotografia.length()>455){
             throw new Exception("La fotografia no puede tener mas de 255 caracteres");
         }
         return true;

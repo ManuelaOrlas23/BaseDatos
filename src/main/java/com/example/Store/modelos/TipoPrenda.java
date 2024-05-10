@@ -11,6 +11,8 @@ public class TipoPrenda {
     @Column(name = "nombre",nullable = false, length = 80)
     private String nombre; // no vacio solo letras y espacios y longitud 80
 
+
+
     public TipoPrenda() {
     }
 

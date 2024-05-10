@@ -1,5 +1,6 @@
 package com.example.Store.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,7 +21,7 @@ public class Producto {
     private Integer precioUnitario; // solo numeros positivos
     @Column(name = "descripcion",nullable = true, length = 100)
     private String descripcion; // longitud maxima 100
-    @Column(name = "fotografia",nullable = true, length = 255)
+    @Column(name = "fotografia")
     private String fotografia; // no vacio, maximo 255
 
     @ManyToOne
@@ -29,6 +30,7 @@ public class Producto {
 
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_marca", referencedColumnName = "id_marca")
     Marca marca;
 
@@ -39,9 +41,8 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Integer id, String nombreProducto, String referencia, String talla, Integer cantidadBodega, Integer precioUnitario,
-                    String descripcion, String fotografia) {
-        this.id_producto = id;
+    public Producto(Integer id_producto, String nombreProducto, String referencia, String talla, Integer cantidadBodega, Integer precioUnitario, String descripcion, String fotografia, Detalle detalle, Marca marca, TipoPrenda tipoPrenda) {
+        this.id_producto = id_producto;
         this.nombreProducto = nombreProducto;
         this.referencia = referencia;
         this.talla = talla;
@@ -49,6 +50,17 @@ public class Producto {
         this.precioUnitario = precioUnitario;
         this.descripcion = descripcion;
         this.fotografia = fotografia;
+        this.detalle = detalle;
+        this.marca = marca;
+        this.tipoPrenda = tipoPrenda;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public String getNombreProducto() {
@@ -105,5 +117,29 @@ public class Producto {
 
     public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
+    }
+
+    public Integer getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(Integer id_producto) {
+        this.id_producto = id_producto;
+    }
+
+    public Detalle getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(Detalle detalle) {
+        this.detalle = detalle;
+    }
+
+    public TipoPrenda getTipoPrenda() {
+        return tipoPrenda;
+    }
+
+    public void setTipoPrenda(TipoPrenda tipoPrenda) {
+        this.tipoPrenda = tipoPrenda;
     }
 }

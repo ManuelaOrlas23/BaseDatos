@@ -1,9 +1,12 @@
 package com.example.Store.modelos;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.awt.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "marcas")
@@ -21,15 +24,21 @@ public class Marca {
     @Column(name = "sedePrincipal",nullable = true, length = 30)
     private String sedePrincipal; // no se valida
 
+    @OneToMany(mappedBy = "marca")
+    @JsonManagedReference
+    private List<Producto> productos = new ArrayList<Producto>();
+
+
     public Marca() {
     }
 
-    public Marca(Integer id, String nombreMarca, String nit, LocalDate anoCreacion, String sedePrincipal) {
-        this.id_marca = id;
+    public Marca(Integer id_marca, String nombreMarca, String nit, String anoCreacion, String sedePrincipal, List<Producto> productos) {
+        this.id_marca = id_marca;
         this.nombreMarca = nombreMarca;
         this.nit = nit;
-        this.anoCreacion = String.valueOf(anoCreacion);
+        this.anoCreacion = anoCreacion;
         this.sedePrincipal = sedePrincipal;
+        this.productos = productos;
     }
 
     public String getNombreMarca() {
@@ -62,5 +71,21 @@ public class Marca {
 
     public void setSedePrincipal(String sedePrincipal) {
         this.sedePrincipal = sedePrincipal;
+    }
+
+    public Integer getId_marca() {
+        return id_marca;
+    }
+
+    public void setId_marca(Integer id_marca) {
+        this.id_marca = id_marca;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 }
